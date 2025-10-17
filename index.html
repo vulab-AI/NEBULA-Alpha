@@ -81,7 +81,7 @@
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
                     </span>
-                    <span>arXiv</span>
+                    <span>arXiv (Coming soon)</span>
                   </a>
                 </span>
 
@@ -92,7 +92,7 @@
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Code (Coming soon)</span>
                   </a>
                 </span>
 
@@ -103,7 +103,7 @@
                   <span class="icon">
                     <i class="fas fa-cube"></i>
                   </span>
-                  <span>HuggingFace</span>
+                  <span>HuggingFace (Coming soon)</span>
                 </a>
               </span>
 
@@ -114,7 +114,7 @@
                   <span class="icon">
                     <i class="fas fa-trophy"></i>
                   </span>
-                  <span>Leaderboard</span>
+                  <span>Leaderboard (Coming soon)</span>
                 </a>
               </span>
 
@@ -180,7 +180,7 @@
           <b>Examples of NEBULA Capability Test task</b> across six core capabilities (Control, Perception, Dynamic Adaptation, Language, Spatial Reasoning, and Robustness) organized into three difficulty levels. Tasks isolate specific skills with controlled complexity. <span style="color: green;">Green</span> marks objects, <span style="color: red;">red</span> marks targets, and <span style="color: blue;">blue</span> indicates contextual cues. <b><u>Bold underlined</u></b> text shows actions; <i><u>italic underlined</u></i> text gives clarifications.
         </p>
         <p>
-          The core impact of this design is its <span style="color: red;">diagnostic power</span>. By <span style="color: red;">isolating a single capability per task</span>, it moves beyond ambiguous success rates to pinpoint the precise cause of failure. This transforms a simple performance metric into a clear, interpretable signal, revealing specific weaknesses (e.g., poor spatial reasoning) that traditional benchmarks would otherwise obscure
+          The core impact of this design is its <span style="color: red;">diagnostic power</span>. By <span style="color: red;">isolating a single capability per task</span>, it moves beyond ambiguous success rates to pinpoint the precise cause of failure. This transforms a simple performance metric into a clear, interpretable signal, revealing specific weaknesses (e.g., poor spatial reasoning) that traditional benchmarks would otherwise obscure.
         </p>
       </div>
       
@@ -232,7 +232,7 @@
         </p>
       </div>
       <div class="columns is-centered has-text-centered">
-        <h3 class="subtitle is-4"><b>Data Collection</b></h3>
+        <h3 class="subtitle is-4"><b>Customize Your Data with NEBULA</b></h3>
       </div>
       <div class="item" style="text-align: center;">
         <img src="static/images/MP_banner.png" alt="Motion Planning" style="width: 100%; height: auto;"/>
@@ -318,21 +318,23 @@
       </div>
       <div class="content has-text-justified">
         <p>
-          This figure presents two radar charts summarizing model performance across six capability task families. The left chart shows the mean and standard deviation of success rates across all models for each task family, broken down by three difficulty levels. The right chart displays the average performance of individual models on Easy and Medium tasks, which allows for a direct comparison across different architectures.
+          This figure presents two radar charts summarizing model performance across six <b><i>capability task families</i></b>.<br>
+          <b>Left Chart</b>: the mean and standard deviation of success rates across all models for each task family, broken down by three difficulty levels.<br>
+          <b>Right Chart</b>: displays the average performance of individual models on Easy and Medium tasks.
         </p>
         <p>
-          These charts reveal a critical <b>capability gap</b> in today's leading VLA models. While most agents confidently master Perception and Language tasks, they show profound weaknesses in skills crucial for real-world interaction. Spatial Reasoning consistently emerges as a key bottleneck, while nearly all models fail at Dynamic Adaptation and Robustness, with performance dropping to near-zero on harder tasks. This exposes a clear need for research to move beyond static skills and toward true adaptive planning and generalization.
+         => <b><i><span style="color: red;">Key Weaknesses</span></i></b>: Spatial Reasoning remains a key bottleneck for most models, while nearly all fail at Dynamic Adaptation and Robustness.
         </p>
       </div>
       <div class="item" style="text-align: center;">
-        <img src="static/images/stress_result.png" alt="NEBULA stress test results"/>
+        <img src="static/images/stress_eval.png" alt="NEBULA stress test results"/>
         </div>
       <div class="content has-text-justified">
         <p>
-          This figure shows the stress test evaluations for four different models, comparing their performance across three increasing stress levels. The evaluation consists of four distinct tests: inference frequency, measured in Hertz; latency, measured in milliseconds; a stability score, on a scale from 0 to 1; and adaptability, measured by success rate.
+          This figure shows the <b><i>stress test evaluations</i></b> for four different models, comparing their performance across three increasing stress levels. The evaluation consists of four distinct tests: inference frequency, measured in Hertz; latency, measured in milliseconds; a stability score, on a scale from 0 to 1; and adaptability, measured by success rate.
         </p>
         <p>
-          These results reveal a <b>consistent degradation in performance</b> for all evaluated models as stress levels increase, highlighting their sensitivity to deployment challenges. GR00T is the most resilient model, maintaining a high inference frequency and demonstrating a modest ability to adapt to changing conditions. In contrast, most other models fail almost completely in the adaptability test and show significant weaknesses in either speed or stability, indicating that they are not yet equipped to handle the demands of dynamic, real-world environments.
+          => <b><i><span style="color: red;">Key Weaknesses</span></i></b>: Under pressure, most VLAs fail to handle dynamic changes due to critical drops in inference speed and control stability, indicating they are not ready for real-world deployment.
         </p>
       </div>
     </div>
