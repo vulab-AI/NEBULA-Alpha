@@ -132,7 +132,7 @@
     <div class="hero-body">
       <div class="item" style="text-align: center;">
         <!-- Your image here -->
-        <img src="static/images/overall1.png" alt="intro_example" />
+        <img src="static/images/overall_update.png" alt="intro_example" />
       </div>
       <h2 class="subtitle has-text-centered">
             <b><span style="color: red;">NEBULA</span> unifies fragmented VLA datasets and APIs for cross-dataset training and benchmarking. It introduces a <span style="color: blue;">dual-axis evaluation</span> (capability and stress testing) with <span style="color: blue;">controlled variable isolation</span> for skill-specific diagnosis. With <span style="color: blue;">hierarchical task difficulty</span>, multi-modal annotations, and visual performance summaries, NEBULA converts success rate into a diagnostic signal, exposing failure modes and reliability limits.</b>
@@ -167,19 +167,119 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">Evaluation Tasks</h2>
+        <h2 class="title is-3">Dual-Axis Evaluation Framework</h2>
+      </div>
+      <div class="columns is-centered has-text-centered">
+        <h3 class="subtitle is-4"><b>Capability Test</b></h3>
       </div>
       <div class="item">
-        <img src="static/images/tasks.png" alt="MY ALT TEXT"/>
+        <img src="static/images/capability_tasks.png" alt="Capability Tasks"/>
       </div>
       <div class="content has-text-justified">
         <p>
           <b>Examples of NEBULA Capability Test task</b> across six core capabilities (Control, Perception, Dynamic Adaptation, Language, Spatial Reasoning, and Robustness) organized into three difficulty levels. Tasks isolate specific skills with controlled complexity. <span style="color: green;">Green</span> marks objects, <span style="color: red;">red</span> marks targets, and <span style="color: blue;">blue</span> indicates contextual cues. <b><u>Bold underlined</u></b> text shows actions; <i><u>italic underlined</u></i> text gives clarifications.
         </p>
+        <p>
+          The primary impact of this evaluation design is its ability to provide a deep, diagnostic analysis of an agent's abilities, moving beyond ambiguous, task-level success rates. By using a principle of controlled-variable isolation, each task family is designed to test a single capability while minimizing the influence of others, ensuring that performance can be unambiguously attributed to the specific skill being evaluated. This methodology is used to pinpoint the precise reasons for an agent's failure, transforming a simple success metric into an interpretable, multi-faceted signal that reveals specific weaknesses, such as difficulties with spatial reasoning or dynamic adaptation, which are often obscured in traditional benchmarks.
+        </p>
+      </div>
+      
+      <div class="columns is-centered has-text-centered">
+        <h3 class="subtitle is-4"><b>Stress Test</b></h3>
+      </div>
+      <div class="item" style="text-align: center;">
+        <img src="static/images/stress_test.png" alt="Stress Test" style="width: 70%; height: auto;"/>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          This figure provides examples from the <b>NEBULA Stress Test</b> suite, illustrating the Stability and Adaptability tasks across three progressive difficulty levels. The Stability Score tasks evaluate the smoothness of an agent's actions by increasing the precision required, moving from a simple stack at Level 1 to a more complex, multi-object arrangement at Level 3. The Adaptability tasks assess an agent's capacity to adjust to dynamic changes during execution, beginning with a sudden object movement (Level 1), advancing to a mid-task instruction change (Level 2), and culminating in a command abort that requires rapid re-planning (Level 3).
+        </p>
+        <p>
+          The impact of these Stress Tests is to enable a more profound and diagnostic evaluation than what is possible with traditional success rates, by quantifying system performance under targeted operational pressures. This approach can be used to identify critical performance bottlenecks, reveal an agent's failure points under pressure, and assess its readiness for real-world deployment where conditions are often unpredictable. To specifically diagnose issues in dynamic scenarios, metrics like inference speed and latency are evaluated in conjunction with the Adaptability test to understand how an agent's system responsiveness directly impacts its ability to handle real-time environmental changes and goal shifts.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 <!-- End Task Summary -->
+
+<!-- NEBULA Dataset -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">NEBULA Dataset</h2>
+      </div>
+      <div class="item" style="text-align: center;">
+        <img src="static/images/data_table.png" alt="NEBULA Dataset" style="width: 50%; height: auto;"/>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          To facilitate reproducible and scalable research, NEBULA provides two large-scale, aggregated dataset variants designed to balance completeness with ease of use. All data is collected within NEBULA Ecosystem, ensuring consistency across all tasks.
+        </p>
+        <ul>
+          <li><b>NEBULA-Alpha:</b> The full-scale dataset containing over 222,000 expert demonstrations across the five core capability families. This version is generated entirely using expert trajectories from motion planning and is ideal for training robust, large-scale models.</li>
+          <li><b>NEBULA-Beta:</b> A compact, lightweight version containing 10% of the data per task, designed for rapid development, prototyping, and ablation studies. For high-difficulty tasks, this version includes data from human teleoperation to capture more diverse and realistic behaviors.</li>
+        </ul>
+        <p>
+          Both datasets provide multimodal inputs, including videos, language instructions, and trajectories, and are available in standardized PyTorch and TFRecord formats to reduce integration overhead.
+        </p>
+        <p>
+          To access the NEBULA dataset, please refer to our HuggingFace repository.
+        </p>
+        <p>
+          NEBULA also provides the tools necessary for you to generate your own customized datasets. We support two primary methods for data collection: automated Motion Planning and manual Human Teleoperation.
+        </p>
+      </div>
+      <div class="item" style="text-align: center;">
+        <img src="static/images/MP_banner.png" alt="Motion Planning" style="width: 100%; height: auto;"/>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          <b>Motion Planning:</b> For generating large-scale expert trajectories automatically, you can use our motion planning pipeline. This process utilizes robot descriptions and motion planners within our simulation environments to generate optimal solutions and collect data systematically.
+        </p>
+      </div>
+      <div class="item" style="text-align: center;">
+        <img src="static/images/teleop_banner.png" alt="Teleoperation" style="width: 100%; height: auto;"/>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          <b>Human Teleoperation:</b> To capture more diverse and realistic behaviors for complex tasks, we provide an intuitive teleoperation interface. This system allows you to manually control the robot and record demonstrations. As shown, it is designed for cross-platform use, supporting both macOS and Ubuntu.
+        </p>
+        <p>
+          For more details, please refer to our GitHub repository.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End NEBULA Dataset -->
+
+<!-- NEBULA Unified Data Platform -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">NEBULA Unified Data Platform</h2>
+      </div>
+      <div class="item" style="text-align: center;">
+        <img src="static/images/data.png" alt="NEBULA Unified Data Platform" style="width: 70%; height: auto;"/>
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          NEBULA introduces a unified data platform designed to streamline research and foster collaboration. Our platform ingests these varied data formats into a single, standardized NEBULA format, providing the core infrastructure for both unified training and reproducible evaluation. This allows researchers to focus on innovation rather than data engineering.
+        </p>
+        <ul>
+          <li><b>Unified & Structured Data Format:</b> Introducing a standardized data schema for consistent representation of robot interactions in an episode structure. Consolidating observations, actions, and metadata for plug-and-play compatibility across datasets.</li>
+          <li><b>Extensible, Robot-Agnostic Architecture:</b> Our platform is not hardcoded to specific hardware. Instead, robot properties are defined in a centralized configuration system, allowing support for various arm setups, gripper types, and sensor configurations.</li>
+          <li><b>Powerful and Intuitive Python SDK:</b> Includes a high-level Python API that abstracts low-level data loading and indexing. This enables researchers to easily query, filter, sample data, and perform machine learning tasks like train-test splits with minimal code.</li>
+          <li><b>Seamless Model Integration:</b> Provides model input adapters for widely used VLA architectures. These adapters bridge the gap between the unified data format and a model's expected input, allowing for immediate benchmarking with minimal integration overhead.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End NEBULA Unified Data Platform -->
 
 <!-- NEBULA Simulation -->
 <section class="section hero">
@@ -190,7 +290,7 @@
       </div>
       <div class="item" style="text-align: center;">
         <video autoplay muted loop playsinline controls preload="metadata" style="width: 70%; height: auto;">
-          <source src="static/videos/simulations.mp4" type="video/mp4">
+          <source src="static/videos/simulation.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -209,7 +309,7 @@
   <div class="container is-max-desktop">
     <div class="hero-body">
       <div class="columns is-centered has-text-centered">
-        <h2 class="title is-3">What does NEBULA reveal?</h2>
+        <h2 class="title is-3">Current Bottlenecks</h2>
       </div>
       <div class="item" style="text-align: center;">
         <img src="static/images/overview_capability.png" alt="NEBULA capability analysis"/>
